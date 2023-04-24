@@ -12,11 +12,7 @@ body{
   text-align: center;
   height: 100vh;
   overflow-y: hidden;
-
-
-  
-  font-family: sans-serif;
-  padding: 30px;
+  overflow-x: hidden;
 }
 
 .heading {
@@ -101,7 +97,7 @@ body{
   color: #fff;
 }
 
-@media (max-width:400px) {
+@media (max-width:420px) {
   .App {
     padding: 20px;
     height: 100vh;
@@ -130,15 +126,15 @@ h1{
 }
 
 .button {
-  width: 70px;
-  height: 70px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   justify-content: space-around;
   align-items: center;
   background: rgb(225, 201, 46);
-  font-size: 15px;
+  font-size: 13px;
   border: none;
-  margin: 15px;
+  margin: 12px;
 
   
 }
