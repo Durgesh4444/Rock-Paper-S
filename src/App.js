@@ -1,7 +1,22 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import click from "./assets/click1.mp3"
+import defeat from "./assets/defeat.mp3"
+import win from "./assets/win.mp3"
+
 
 function App() {
+  const Play = () => {
+    new Audio(click).play()
+  }
+
+  const Play2 = () =>{
+    new Audio(defeat).play()
+  }
+
+  const Play3 =() =>{
+    new Audio(win).play()
+  }
   const choices = ["rock", "paper", "scissors"];
 
   const [userChoice, setUserChoice] = useState(choices[0]);
@@ -25,53 +40,31 @@ function App() {
   const selectRock = () => {
     setUserChoice(choices[0]);
     cc();
+    Play();
     
   };
 
   const selectPaper = () => {
     setUserChoice(choices[1]);
     cc();
+    Play();
     
   };
 
   const selectScisos = () => {
     setUserChoice(choices[2]);
     cc();
+    Play();
     
   };
 
   const reset = () =>{
-    window.location.reload()
+    Play();
+    setTimeout(window.location.reload(), 5000)
     setTurnResult("Let's Play")
   }
 
-  // useEffect(() => {
-  //   const combomove = userChoice + computerChoice;
-  //   if(combomove === "rockscissors" || "scissorspaper" || "paperrock"){
-  //     const updateduser = userPoints + 1;
-  //     setUserPoints(updateduser)
-  //     setTurnResult("User Got the Point")
-  //     if(updateduser === 3){
-  //       setResult("User Wins")
-  //       setGameOver(true)
-  //     }
-  //   }
-  //   else if(combomove === "scissorsrock" || "paperscissors" || "rockpaper"){
-  //     const updatedcomputer = computerPoints+1;
-  //     setComputerPoints(updatedcomputer)
-  //     setTurnResult("Computer Got the point")
-  //     if(updatedcomputer === 3){
-  //       setResult("Computer Wins")
-  //       setGameOver(true)
-  //     }
-  //   }
-
-  //   else if((combomove === "rockrock" || "paperpaper" || "scissorsscissors")){
-  //     setTurnResult("No One Got The Point")
-  //   }
-
-  // }, [userChoice, computerChoice])
-
+  
   useEffect(() => {
     const comboMoves = userChoice + computerChoice
     if (userPoints <= 4 && computerPoints <= 4) {
@@ -82,7 +75,7 @@ function App() {
         setTurnResult('User gets the point!')
         if (updatedUserPoints === 5){
           setResult('User Wins')
-          
+          Play3()
           setGameOver(true)
         }
       }
@@ -94,6 +87,7 @@ function App() {
         setTurnResult('Computer gets the point!')
         if (updatedComputerPoints === 5) {
           setResult('Computer Wins')
+          Play2()
          
           setGameOver(true)
         }
@@ -135,6 +129,7 @@ function App() {
         <button onClick={selectRock} className="button">
           Rock
         </button>
+        <audio src=""></audio>
         <button onClick={selectPaper} className="button">
           Paper
         </button>
